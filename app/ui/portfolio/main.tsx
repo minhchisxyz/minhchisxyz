@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect, useRef, useState} from "react";
-import HomeContent from "@/app/ui/portfolio/home-content";
+import Hero from "@/app/ui/portfolio/hero";
 import Skills from "@/app/ui/portfolio/skills";
 import Projects from "@/app/ui/portfolio/projects";
 import Contact from "@/app/ui/portfolio/contact";
@@ -106,7 +106,7 @@ export default function Main() {
           <main>
             {/* We now pass refs to each section */}
             <section id="home" ref={sectionRefs.home} className="min-h-screen flex items-center justify-center px-4 pt-16 -mt-16 text-center">
-              <HomeContent setPage={setPage} name={ name } /> {/* Extracted content for clarity */}
+              <Hero setPage={setPage} name={ name } />
             </section>
             <section id="skills" ref={sectionRefs.skills} className="py-24">
               <Skills />

@@ -43,7 +43,12 @@ export default function Navbar (
     }
 ) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navItems = ['Home', 'Skills', 'Projects', 'Contact'];
+  const navItems = [
+      'Home',
+      'Skills',
+      'Projects',
+      //'Contact'
+  ];
 
   return (
       <nav className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-lg">

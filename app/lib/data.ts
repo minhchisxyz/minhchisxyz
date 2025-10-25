@@ -18,7 +18,7 @@ const projectData: Project[] = [
     description:
         'A social network-like platform with posts and comments',
     tech: ['Python', 'Django', 'SQLite'],
-    imageUrl: 'https://placehold.co/600x400/3B82F6/E0F2FE?text=Social+Network+Project',
+    imageUrl: 'https://placehold.co/600x400/3B82F6/E0F2FE?text=Social+Network',
     githubUrl: 'https://github.com/minhchisxyz/network'
   },
   {
@@ -26,7 +26,7 @@ const projectData: Project[] = [
     description:
         'Visualizes bank transactions and currency rates over time ',
     tech: ['Java', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Angular'],
-    imageUrl: 'https://placehold.co/600x400/8B5CF6/F5F3FF?text=Account+Management+Project',
+    imageUrl: 'https://placehold.co/600x400/8B5CF6/F5F3FF?text=Account+Management',
     githubUrl: 'https://github.com/minhchisxyz/account-management'
   },
   {
@@ -34,7 +34,7 @@ const projectData: Project[] = [
     description:
         'Tracks client invoices, generates PDFs, and visualizes data',
     tech: ['Java', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Angular', 'iTextPDF'],
-    imageUrl: 'https://placehold.co/600x400/10B981/ECFDF5?text=Debt+Management+Project',
+    imageUrl: 'https://placehold.co/600x400/10B981/ECFDF5?text=Debt+Management',
     githubUrl: 'https://github.com/minhchisxyz/Debt-Management'
   },
   {
@@ -42,7 +42,7 @@ const projectData: Project[] = [
     description:
         'Tracks client invoices, generates PDFs, and visualizes data',
     tech: ['Java', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Angular', 'iTextPDF'],
-    imageUrl: 'https://placehold.co/600x400/10B981/ECFDF5?text=Book+n+Eat+Project',
+    imageUrl: 'https://placehold.co/600x400/E9A2F5/ECFDF5?text=Book+n+Eat',
     githubUrl: 'https://github.com/minhchi1709/book-n-eat'
   },
   {
@@ -50,7 +50,7 @@ const projectData: Project[] = [
     description:
         'Client-side blackjack game against a bot, deployed on GitHub Pages',
     tech: ['TypeScript', 'Angular'],
-    imageUrl: 'https://placehold.co/600x400/10B981/ECFDF5?text=Black+Jack+Project',
+    imageUrl: 'https://placehold.co/600x400/DE8854/ECFDF5?text=Black+Jack',
     githubUrl: 'https://github.com/minhchi1709/blackjack',
     liveUrl: 'https://minhchisxyz.github.io/blackjack/'
   },
