@@ -114,9 +114,9 @@ export default function Main() {
             <section id="projects" ref={sectionRefs.projects} className="py-24">
               <Projects />
             </section>
-            <section id="contact" ref={sectionRefs.contact} className="py-24">
+            {/*<section id="contact" ref={sectionRefs.contact} className="py-24">
               <Contact />
-            </section>
+            </section>*/}
           </main>
           <Footer name={ name } />
         </div>
