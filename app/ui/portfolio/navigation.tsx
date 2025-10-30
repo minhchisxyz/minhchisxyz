@@ -2,36 +2,25 @@
 
 import {Dispatch, ReactNode, SetStateAction, useState} from "react";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid";
-import Link from "next/link";
-import clsx from "clsx";
 
 function NavLink (
-    { children, pageName, page, setPageAction, setIsMobileMenuOpenAction } : {
+    { children, pageName, page, handleClick} : {
       children: ReactNode,
       pageName: string,
       page: string,
-      setPageAction: Dispatch<SetStateAction<string>>,
-      setIsMobileMenuOpenAction: Dispatch<SetStateAction<boolean>>
+      handleClick: (page: string) => void,
     }
 ) {
   return (
-      <Link
-          href={`#${pageName.toLowerCase()}`}
-          onClick={(e) => {
-            e.preventDefault();
-            setPageAction(pageName.toLowerCase());
-            setIsMobileMenuOpenAction(false);
-          }}
-          className={clsx(
-              `block md:inline-block px-3 py-2 rounded-md text-base font-medium transition-colors`,
-              {
-                'text-white font-semibold': page === pageName.toLowerCase(),
-                'text-gray-300 hover:text-white': page !== pageName.toLowerCase()
-              }
-          )}
+      <button
+          onClick={() => handleClick(pageName)}
+          className={
+              `block md:inline-block px-3 py-2 rounded-md text-base font-medium transition-colors hover:cursor-pointer 
+              ${page === pageName.toLowerCase() ? 'text-white font-semibold' : 'text-gray-300 hover:text-white'}`
+          }
       >
         {children}
-      </Link>
+      </button>
   );
 }
 
@@ -49,6 +38,12 @@ export default function Navbar (
       'Projects',
       //'Contact'
   ];
+  const handleClick = (page: string) => {
+    const element = document.getElementById(page.toLowerCase());
+    element?.scrollIntoView({ behavior: 'smooth' });
+    setPageAction(page.toLowerCase());
+    setIsMobileMenuOpen(false);
+  }
 
   return (
       <nav className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-lg">
@@ -57,7 +52,7 @@ export default function Navbar (
             <div className="flex-shrink-0">
             <span
                 className="text-white font-bold text-2xl cursor-pointer text-shadow-medium"
-                onClick={() => setPageAction('home')}
+                onClick={() => handleClick('home')}
             >
               { name }
             </span>
@@ -65,7 +60,7 @@ export default function Navbar (
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {navItems.map((item) => (
-                    <NavLink key={item} pageName={item} page={page} setPageAction={setPageAction} setIsMobileMenuOpenAction={setIsMobileMenuOpen}>
+                    <NavLink key={item} pageName={item} page={page} handleClick={handleClick}>
                       {item}
                     </NavLink>
                 ))}
@@ -87,15 +82,15 @@ export default function Navbar (
 
         {/* Mobile menu dropdown */}
         <div
-            className={clsx(
-                `md:hidden border-t border-white/20 backdrop-blur-lg bg-white/10`,
-                {'block': isMobileMenuOpen, 'hidden': !isMobileMenuOpen}
-            )}
+            className={
+                `md:hidden border-t border-white/20 backdrop-blur-lg bg-white/10 
+                ${isMobileMenuOpen ? 'block' : 'hidden'}`
+        }
             id="mobile-menu"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-                <NavLink key={item} pageName={item} page={page} setPageAction={setPageAction} setIsMobileMenuOpenAction={setIsMobileMenuOpen}>
+                <NavLink key={item} pageName={item} page={page} handleClick={handleClick}>
                   {item}
                 </NavLink>
             ))}
