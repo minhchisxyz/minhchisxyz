@@ -54,6 +54,15 @@ const projectData: Project[] = [
     githubUrl: 'https://github.com/minhchi1709/blackjack',
     liveUrl: 'https://minhchisxyz.github.io/blackjack/'
   },
+  {
+    title: 'AI Travel Planner',
+    description:
+        'AI assistant to plan travel destinations based on user preferences',
+    tech: ['TypeScript', 'Next.js', 'Gemini API'],
+    imageUrl: 'https://placehold.co/600x400/C99085/ECFDF5?text=AI+Travel+Planner',
+    githubUrl: 'https://github.com/minhchisxyz/travel-planner',
+    liveUrl: 'https://travel-planner-asisstant.vercel.app/'
+  },
 ];
 
 const skillStacks: SkillStack[] = [
