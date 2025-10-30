@@ -1,4 +1,4 @@
-import {getSkills} from "@/app/lib/data";
+import {getSkills} from "@/app/lib/data-skills";
 
 function CategoryCard ({ title, skills }: {
   title: string;

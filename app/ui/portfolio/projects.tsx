@@ -1,6 +1,6 @@
 import {GithubIcon} from "@/app/ui/portfolio/icons";
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/24/outline";
-import {getProjects} from "@/app/lib/data";
+import {getProjects} from "@/app/lib/data-projects";
 import Link from "next/link";
 
 function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }: {
