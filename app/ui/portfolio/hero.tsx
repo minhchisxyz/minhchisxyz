@@ -9,6 +9,7 @@ export default function Hero  (
       name: string
     }
 ) {
+  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#ffffff,4px_-4px_6px_#ffffff]'
   return (
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
         {/* Left: Text Content */}
@@ -29,7 +30,7 @@ export default function Hero  (
                   e.preventDefault();
                   setPage('projects');
                 }}
-                className="px-8 py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition-all"
+                className={`px-8 py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition-all ${hover}`}
             >
               My Projects
             </Link>

@@ -20,7 +20,7 @@ export default function Main() {
 
   // define options for intersection observer
   const options = {
-    threshold: 0.3,
+    threshold: 0.2,
   }
   const name = 'Minh Chi Diep'
   const [page, setPage] = useState('home');
