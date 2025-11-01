@@ -74,7 +74,7 @@ export default function Navbar (
                   aria-expanded={isMobileMenuOpen}
               >
                 <span className="sr-only">Open main menu</span>
-                {isMobileMenuOpen ? <XMarkIcon /> : <Bars3Icon />}
+                {isMobileMenuOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6"/>}
               </button>
             </div>
           </div>
