@@ -18,6 +18,13 @@ export default function Main() {
     contact: 'from-gray-800 via-indigo-900 to-gray-800', // Cool grays and indigos
   };
 
+  type SectionKey = keyof typeof sectionBackgrounds;
+
+  function getSectionKey(key: string): SectionKey {
+    if (key in sectionBackgrounds) return key as SectionKey;
+    return 'default';
+  }
+
   // define options for intersection observer
   const options = {
     threshold: 0.2,
@@ -25,28 +32,23 @@ export default function Main() {
   const name = 'Minh Chi Diep'
   const [page, setPage] = useState('home');
   const [bg, setBg] = useState(sectionBackgrounds.default);
+  function setPageAndBackground(page: string) {
+    setPage(page)
+    setBg(sectionBackgrounds[getSectionKey(page)])
+  }
   const homeRef = useOnInView(
       (inView) => {
-        if (inView) {
-          setBg(sectionBackgrounds.home)
-          setPage('home')
-        }
+        if (inView) setPageAndBackground('home')
       }, options
   )
   const skillsRef = useOnInView(
       (inView) => {
-        if (inView) {
-          setBg(sectionBackgrounds.skills)
-          setPage('skills')
-        }
+        if (inView) setPageAndBackground('skills')
       }, options
   )
   const projectsRef = useOnInView(
       (inView) => {
-        if (inView) {
-          setBg(sectionBackgrounds.projects)
-          setPage('projects')
-        }
+        if (inView) setPageAndBackground('projects')
       }, options
   )
 
@@ -62,11 +64,11 @@ export default function Main() {
 
         {/* Content */}
         <div className="relative z-10">
-          <Navbar setPageAction={setPage} page={page} name={name}/>
+          <Navbar setPageAndBackgroundAction={setPageAndBackground} page={page} name={name}/>
           <main>
             {/* We now pass refs to each section */}
             <section id="home" ref={homeRef} className="min-h-screen flex items-center justify-center px-4 pt-16 -mt-16 text-center">
-              <Hero setPage={setPage} name={ name } />
+              <Hero setPageAndBackgroundAction={setPageAndBackground} name={ name } />
             </section>
             <section id="skills" ref={skillsRef} className="py-24">
               <Skills />

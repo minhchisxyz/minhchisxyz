@@ -1,15 +1,16 @@
-import {Dispatch, SetStateAction} from "react";
+
 import Image from "next/image";
 import Me from "./img/me.png"
-import Link from "next/link";
 
 export default function Hero  (
-    { setPage, name }: {
-      setPage: Dispatch<SetStateAction<string>>,
+    { setPageAndBackgroundAction, name }: {
+      setPageAndBackgroundAction: (page: string) => void,
       name: string
     }
 ) {
-  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#ffffff,4px_-4px_6px_#ffffff]'
+  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#222222,2px_-2px_6px_#ffffff] hover:cursor-pointer'
+  const shadow = 'shadow-[4px_4px_8px_#222222,-2px_-2px_6px_#ffffff]'
+  const glass = `bg-white/15 backdrop-blur-md border border-none rounded-lg`
   return (
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
         {/* Left: Text Content */}
@@ -24,16 +25,16 @@ export default function Hero  (
             I enthusiast in coding, badminton and doing gym things
           </h2>
           <div className="flex justify-center md:justify-start gap-4">
-            <Link
-                href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage('projects');
+            <button
+                onClick={() => {
+                  const element = document.getElementById('projects');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                  setPageAndBackgroundAction('projects');
                 }}
-                className={`px-8 py-3 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition-all ${hover}`}
+                className={`px-8 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover}`}
             >
               My Projects
-            </Link>
+            </button>
             {/*<Link
                 href="#contact"
                 onClick={(e) => {
