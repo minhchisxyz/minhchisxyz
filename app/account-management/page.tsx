@@ -7,15 +7,15 @@ import {YearTotal} from "@/app/lib/account-management/definitions";
 
 
 export default async function Home() {
-    const data = await Promise.all([
-        fetchBalance(),
-        getRate(),
-        fetchYearTotals(),
-    ])
-    const balance: number = data[0]
-    const rate: number = data[1]
-    const totals : YearTotal[] = data[2]
-    const shadow = 'shadow-[4px_4px_8px_#dddddd,-4px_-4px_6px_#ffffff]'
+  const data = await Promise.all([
+    fetchBalance(),
+    getRate(),
+    fetchYearTotals(),
+  ])
+  const balance: number = data[0]
+  const rate: number = data[1]
+  const totals : YearTotal[] = data[2]
+  const shadow = 'shadow-[4px_4px_8px_#dddddd,-4px_-4px_6px_#ffffff]'
   return (
     <div className={"flex flex-col items-center w-full p-10 overflow-hidden min-h-screen"}>
         <div className={`text-4xl font-bold w-full flex justify-center items-center py-10 rounded-2xl backdrop-blur-xl ${shadow}`}>

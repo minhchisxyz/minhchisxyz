@@ -4,8 +4,8 @@ import CurrencyContentPage from "@/app/ui/account-management/currency-content-pa
 import {fetchAllRates} from "@/app/lib/account-management/currency/data";
 
 export default async function CurrencyLayout() {
-    const rates: CurrencyRate[] = await fetchAllRates()
-    return (
-        <CurrencyContentPage rates={rates}/>
-    )
+  const rates: CurrencyRate[] = await fetchAllRates()
+  return (
+      <CurrencyContentPage rates={rates}/>
+  )
 }

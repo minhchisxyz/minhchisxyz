@@ -17,7 +17,7 @@ export type Transaction = {
 
 export type GroupedTransactions = {
   date: Date,
-  _sum: { amount: number | null }
+  total: number
 }
 
 export type CurrencyRate = {

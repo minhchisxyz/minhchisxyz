@@ -27,13 +27,13 @@ export default async function MonthDetailsPage({
             <div className={`w-full h-full grid grid-cols-2 gap-10 flex-1`}>
                 <div className="w-full h-full flex flex-col items-center justify-center">
                     <Graph labels={groupedTransactions.map(t => t.date.getDate().toString())}
-                           dataset={groupedTransactions.map(t => t._sum.amount)}
+                           dataset={groupedTransactions.map(t => t.total)}
                            currency={'EUR'}
                            title={`Analysis in ${month.toUpperCase()}, ${year}`}/>
                 </div>
                 <div className="w-full h-full flex flex-col items-center justify-center">
                     <Graph labels={groupedTransactions.map(t => t.date.getDate().toString())}
-                           dataset={groupedTransactions.map(t => t._sum.amount * rate)}
+                           dataset={groupedTransactions.map(t => t.total * rate)}
                            currency={'VND'}
                            title={`Analysis in ${month.toUpperCase()}, ${year}`}/>
                 </div>

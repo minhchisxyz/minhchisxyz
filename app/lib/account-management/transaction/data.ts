@@ -1,8 +1,6 @@
-import postgres from "postgres";
+
 import {GroupedTransactions, MonthTotal, Transaction, YearTotal} from "@/app/lib/account-management/definitions";
 import prisma from "@/app/lib/account-management/prisma";
-
-const sql = postgres(process.env.POSTGRES_URL!, {});
 
 export async function removeTransaction(id: number) {
   try {
@@ -73,7 +71,7 @@ export async function fetchYearTotals() {
 export async function fetchAllYears() {
   try {
     console.log("Fetching all years...");
-    return await prisma.$queryRaw<number[]>`
+    return await prisma.$queryRaw<{year: number}[]>`
         SELECT
             DISTINCT (EXTRACT(YEAR FROM date)) AS year
         FROM "Transaction"
@@ -141,7 +139,7 @@ export async function fetchAllTransactionsOfMonth(year: number, month: number) {
 export async function fetchAllTransactionsOfMonthGroupByDate(year: number, month: number) {
   try {
     console.log(`Fetching all grouped by date transactions for month ${month} of year ${year}...`);
-    return await prisma.transaction.groupBy({
+    return (await prisma.transaction.groupBy({
       by: ['date'],
       where: {
         date: {
@@ -155,7 +153,10 @@ export async function fetchAllTransactionsOfMonthGroupByDate(year: number, month
       orderBy: [{
         date: 'asc'
       }]
-    })
+    })).map(group => ({
+      date: group.date,
+      total: group._sum.amount ?? 0
+    })) as GroupedTransactions[]
   } catch (error) {
     console.log('Database Error:', error);
     throw new Error(`Fetching all grouped by date transactions for month ${month} of year ${year}...`);
