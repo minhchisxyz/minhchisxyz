@@ -1,0 +1,44 @@
+
+import Graph from "../../../../../ui/account-management/graph";
+import { getRate } from "@/app/lib/account-management/currency/actions";
+import { getMonthNumber} from "@/app/lib/account-management/formatterService";
+import { TransactionsTable } from "@/app/ui/account-management/table";
+import { redirect } from "next/navigation";
+import {fetchAllTransactionsOfMonth, fetchAllTransactionsOfMonthGroupByDate} from "@/app/lib/account-management/transaction/data";
+import {GroupedTransactions, Transaction} from "@/app/lib/account-management/definitions";
+
+export default async function MonthDetailsPage({
+    params
+}: {
+    params: Promise<{month: string, year: number}>
+}) {
+  const {month, year} = await params
+  const data = await Promise.all([
+    fetchAllTransactionsOfMonthGroupByDate(year, getMonthNumber(month)),
+    fetchAllTransactionsOfMonth(year, getMonthNumber(month)),
+    getRate()
+  ])
+  const groupedTransactions: GroupedTransactions[] = data[0]
+  const transactions : Transaction[]= data[1]
+  if (transactions.length === 0) return redirect(`/account-management/years/${year}`)
+  const rate: number = data[2]
+    return (
+        <div className={`flex flex-col gap-4 w-full`}>
+            <div className={`w-full h-full grid grid-cols-2 gap-10 flex-1`}>
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                    <Graph labels={groupedTransactions.map(t => t.date.getDate().toString())}
+                           dataset={groupedTransactions.map(t => t._sum.amount)}
+                           currency={'EUR'}
+                           title={`Analysis in ${month.toUpperCase()}, ${year}`}/>
+                </div>
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                    <Graph labels={groupedTransactions.map(t => t.date.getDate().toString())}
+                           dataset={groupedTransactions.map(t => t._sum.amount * rate)}
+                           currency={'VND'}
+                           title={`Analysis in ${month.toUpperCase()}, ${year}`}/>
+                </div>
+            </div>
+            <TransactionsTable transactions={transactions} month={month} year={year} rate={rate}/>
+        </div>
+    )
+}

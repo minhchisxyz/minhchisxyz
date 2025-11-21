@@ -1,0 +1,29 @@
+import NavLinks from "@/app/ui/account-management/nav-links";
+import { ReactNode } from "react";
+import {fetchAllMonths} from "@/app/lib/account-management/transaction/data";
+import {getMonthName} from "@/app/lib/account-management/formatterService";
+
+export default async function Layout({
+    params, children
+}: {
+    params: Promise<{year: string}>,
+    children: ReactNode
+}) {
+  const { year } = await params;
+  const months: string[] = (await fetchAllMonths(parseInt(year))).map(m => getMonthName(m.month).toUpperCase())
+
+  return (
+      <div className={`min-h-screen flex w-full`}>
+          <nav className={`w-32 p-4 flex flex-col gap-4 min-h-screen`}>
+              <NavLinks staticLinks={[]}
+                        links={months.map(month => ({
+                            href: `account-management/years/${year}/months/${month.toLowerCase()}`,
+                            label: month
+                        }))}/>
+          </nav>
+          <div className={`flex-1 p-5 w-full`}>
+              {children}
+          </div>
+      </div>
+  )
+}
