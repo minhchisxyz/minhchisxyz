@@ -10,7 +10,7 @@ export async function saveRate(rate: number) {
     return await prisma.currencyExchangeRate.create({
       data: {
         date: date,
-        rate: rate
+        rate: Number(rate)
       }
     })
   } catch (error) {

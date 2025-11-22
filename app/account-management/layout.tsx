@@ -4,6 +4,8 @@ import NavLinks, { StaticLink } from "../ui/account-management/nav-links";
 import {ArrowTrendingUpIcon, BanknotesIcon, HomeIcon} from "@heroicons/react/24/outline"
 import Tooltip from "@mui/material/Tooltip"
 import {fetchAllYears} from "@/app/lib/account-management/transaction/data";
+import {Suspense} from "react";
+import {NavLinksSkeleton} from "@/app/ui/account-management/skeletons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,22 +52,18 @@ export default async function RootLayout({
     }
   ]
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className={`flex max-w-screen min-h-screen w-screen h-screen overflow-x-hidden`}>
-            <aside className="w-24 backdrop-blur-md">
-                <nav className={`w-full p-4 flex flex-col gap-4 min-h-screen`}>
-                    <NavLinks staticLinks={staticLinks}
-                              links={years.map(year => ({label: String(year), href: `account-management/years/${year}`}))}/>
-                </nav>
-            </aside>
-            <main className={`flex-1`}>
-                {children}
-            </main>
-        </div>
-      </body>
-    </html>
+      <div className={`flex max-w-screen min-h-screen w-screen h-screen overflow-x-hidden`}>
+        <aside className="w-24 sticky top-0 backdrop-blur-md">
+          <nav className={`w-full p-4 flex flex-col gap-4 min-h-screen`}>
+            <Suspense fallback={<NavLinksSkeleton/>}>
+              <NavLinks staticLinks={staticLinks}
+                        links={years.map(year => ({label: String(year), href: `account-management/years/${year}`}))}/>
+            </Suspense>
+          </nav>
+        </aside>
+        <main className={`flex-1`}>
+          {children}
+        </main>
+      </div>
   );
 }
