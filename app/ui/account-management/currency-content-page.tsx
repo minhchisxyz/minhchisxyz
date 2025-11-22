@@ -51,40 +51,50 @@ export default function CurrencyContentPage({rates}: {
       value: 365
     }
   ]
-  console.log(rates.length)
   const [amount, setAmount] = useState(1)
   const rate = rates[rates.length - 1]?.rate ?? 0
   return (
-      <div className={"flex flex-col items-center justify-center w-full max-h-screen py-10 px-20 gap-10"}>
-          <div>
-            <div className={"flex flex-row items-center justify-center w-full p-2 gap-10"}>
-              { filters.map(f => (
-                  <button key={f.value}
-                          onClick={() => setFilter(f.value)}
-                          className={`${linkClass} ${filter === f.value ? activeClass : ''}`}>
-                    {f.label}
-                  </button>
-              ))}
-            </div>
-            <Graph labels={filteredRates.map(r => formatDate(r.date))}
-                   dataset={filteredRates.map(t => t.rate)}
-                   currency={'VND'}
-                   title={`Currency Exchange Rate`}/>
+      <div className={"flex flex-col items-center justify-start w-full max-h-screen py-4 px-4 md:px-10 gap-10"}>
+        {/* top block: filters + graph */}
+        <div className={"w-full max-w-[80vw] mx-auto overflow-x-auto"}>
+          <div className={"w-full flex flex-row flex-wrap md:flex-nowrap items-center justify-center p-2 gap-3 sm:gap-4 md:gap-6"}>
+            {filters.map((f) => (
+                <button
+                    key={f.value}
+                    onClick={() => setFilter(f.value)}
+                    className={`${linkClass} ${filter === f.value ? activeClass : ""}`}
+                >
+                  {f.label}
+                </button>
+            ))}
           </div>
-        <div className={`w-full flex flex-col items-center justify-center gap-5`}>
-          <h1 className={`text-bold text-4xl`}>Quick Conversion</h1>
-          <div className={`w-full flex flex-row gap-16 items-center justify-center`}>
-            <div className={`flex flex-row gap-1 items-center justify-center`}>
+          <Graph
+              labels={filteredRates.map((r) => formatDate(r.date))}
+              dataset={filteredRates.map((t) => t.rate)}
+              currency={"VND"}
+              title={`Currency Exchange Rate`}
+          />
+        </div>
+
+        {/* bottom block: quick conversion */}
+        <div className={"w-full max-w-3xl mx-auto flex flex-col items-center justify-center gap-5 px-2"}>
+          <h1 className={"font-bold text-2xl sm:text-3xl md:text-4xl text-center"}>
+            Quick Conversion
+          </h1>
+          <div className={"w-full flex flex-col md:flex-row gap-6 md:gap-16 items-center justify-center"}>
+            <div className={"w-full md:w-auto flex flex-row gap-2 items-center justify-center"}>
               <EuroIcon/>
-              <input value={amount}
-                     onChange={e => setAmount(Number(e.target.value))}
-                     type="number"
-                     className={`${linkClass} ${focusClass}`}/>
+              <input
+                  value={amount}
+                  onChange={e => setAmount(Number(e.target.value))}
+                  type="number"
+                  className={`${linkClass} ${focusClass} max-w-xs w-64 text-center`}
+              />
             </div>
-            <div className={`flex flex-row gap-1 items-center justify-center`}>
+            <div className={"w-full md:w-auto flex flex-row gap-2 items-center justify-center"}>
               <VietnamIcon/>
-              <button className={linkClass}>
-                { formatVND(amount * rate) }
+              <button className={`${linkClass} max-w-xs w-64`}>
+                {formatVND(amount * rate)}
               </button>
             </div>
           </div>

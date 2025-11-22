@@ -14,7 +14,7 @@ export default async function TransactionPage(props: {
     const description = searchParams?.description;
     const date = searchParams?.date;
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex pt-5 md:justify-center md:items-center h-screen px-5">
             <TransactionForm id={id} value={value} description={description} date={date}/>
         </div>
     )

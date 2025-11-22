@@ -1,69 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import NavLinks, { StaticLink } from "../ui/account-management/nav-links";
-import {ArrowTrendingUpIcon, BanknotesIcon, HomeIcon} from "@heroicons/react/24/outline"
-import Tooltip from "@mui/material/Tooltip"
-import {fetchAllYears} from "@/app/lib/account-management/transaction/data";
 import {Suspense} from "react";
 import {NavLinksSkeleton} from "@/app/ui/account-management/skeletons";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import {YearNavigation} from "@/app/ui/account-management/navigation";
 
 export const metadata: Metadata = {
   title: "Account Management",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const years: number[] = (await fetchAllYears()).map(y => y.year)
-  const BASE = `account-management`
-  const staticLinks: StaticLink[] = [
-    {
-      href: `${BASE}`,
-      icon:
-          <Tooltip title={`Home`} placement={`right`}>
-              <HomeIcon className={`h-full`}/>
-          </Tooltip>
-    },
-    {
-      href: `${BASE}/currency`,
-      icon:
-          <Tooltip title={`Currency Exchange Rate`} placement={`right`}>
-              <ArrowTrendingUpIcon className={`h-full`}/>
-          </Tooltip>
-    },
-    {
-      href: `${BASE}/transactions`,
-      icon:
-          <Tooltip title={`Create new transaction`} placement={`right`}>
-              <BanknotesIcon className={`h-full`}/>
-          </Tooltip>
-    }
-  ]
+
   return (
-      <div className={`flex max-w-screen min-h-screen w-screen h-screen overflow-x-hidden`}>
-        <aside className="w-24 sticky top-0 backdrop-blur-md">
-          <nav className={`w-full p-4 flex flex-col gap-4 min-h-screen`}>
-            <Suspense fallback={<NavLinksSkeleton/>}>
-              <NavLinks staticLinks={staticLinks}
-                        links={years.map(year => ({label: String(year), href: `account-management/years/${year}`}))}/>
+      <div className={`flex flex-col md:flex-row w-screen h-screen max-w-screen overflow-hidden`}>
+        <aside className="hidden md:block w-24 backdrop-blur-md">
+          <nav className={`w-24 p-4 flex flex-col gap-4 h-full`}>
+            <Suspense fallback={<NavLinksSkeleton />}>
+              <YearNavigation />
             </Suspense>
           </nav>
         </aside>
-        <main className={`flex-1`}>
-          {children}
-        </main>
+
+        <div className="flex flex-1 flex-col h-full">
+          <nav
+              className={`md:hidden w-screen flex-none p-4 flex flex-row gap-2 backdrop-blur-md overflow-x-auto overflow-y-hidden`}
+          >
+            <Suspense fallback={<NavLinksSkeleton />}>
+              <YearNavigation />
+            </Suspense>
+          </nav>
+
+          <main className={`flex-1 min-h-0 overflow-hidden`}>
+            {children}
+          </main>
+        </div>
       </div>
   );
 }

@@ -1,15 +1,9 @@
 import Graph from "../../../ui/account-management/graph";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import {formatEuro, formatVND, getMonthName} from "@/app/lib/account-management/formatterService";
+import { getMonthName} from "@/app/lib/account-management/formatterService";
 import { getRate } from "@/app/lib/account-management/currency/actions";
-import { EuroIcon, VietnamIcon } from "@/app/ui/account-management/icons";
 import {fetchAllMonthTotals} from "@/app/lib/account-management/transaction/data";
+import {MonthsTable} from "@/app/ui/account-management/table";
+import {Suspense} from "react";
 
 export default async function YearDetailsPage({
     params
@@ -24,52 +18,36 @@ export default async function YearDetailsPage({
   const rate = data[0]
   const totals: {month: string, total: number}[] = data[1].map(t => ({month: getMonthName(t.month).toUpperCase(), total: t.total}))
   return (
-      <div className={`flex flex-col gap-4 w-full`}>
-          <div className={`w-full h-full grid grid-cols-2 gap-10 flex-1`}>
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                  <Graph labels={totals.map(t => t.month)}
-                         dataset={totals.map(t => t.total)}
-                         currency={'EUR'}
-                         title={`Monthly Analysis in ${year}`}/>
+      <div className="flex h-screen w-full justify-center px-4 sm:px-6 lg:px-10 py-4 overflow-hidden">
+        <div className="flex min-h-0 w-full max-w-6xl flex-col gap-4 flex-1">
+          <div className="w-full flex-none">
+            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+              <div className="w-full flex flex-col items-center justify-center">
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Graph
+                      labels={totals.map((t) => t.month)}
+                      dataset={totals.map((t) => t.total)}
+                      currency={"EUR"}
+                      title={`Monthly Analysis in ${year}`}
+                  />
+                </Suspense>
               </div>
-              <div className="w-full h-full flex flex-col items-center justify-center">
-                  <Graph labels={totals.map(t => t.month)}
-                         dataset={totals.map(t => t.total)}
-                         currency={'VND'}
-                         title={`Monthly Analysis in ${year}`}/>
+              <div className="w-full flex flex-col items-center justify-center">
+                <Graph
+                    labels={totals.map((t) => t.month)}
+                    dataset={totals.map((t) => t.total)}
+                    currency={"VND"}
+                    title={`Monthly Analysis in ${year}`}
+                />
               </div>
+            </div>
           </div>
-          <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                  <TableHead>
-                      <TableRow>
-                          <TableCell align="center">Month</TableCell>
-                          <TableCell align="right">
-                              <span className="inline-flex items-center justify-center gap-1">
-                                  <EuroIcon />
-                              </span>
-                          </TableCell>
-                          <TableCell align="right">
-                              <span className="inline-flex items-center justify-center gap-1">
-                                  <VietnamIcon />
-                              </span>
-                          </TableCell>
-                      </TableRow>
-                  </TableHead>
-                  <TableBody>
-                      {totals.map((t) => (
-                          <TableRow
-                              key={t.month}
-                              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                          >
-                              <TableCell align="center">{t.month}</TableCell>
-                              <TableCell align="right">{formatEuro(t.total)}</TableCell>
-                              <TableCell align="right">{formatVND(t.total * rate)}</TableCell>
-                          </TableRow>
-                      ))}
-                  </TableBody>
-              </Table>
-          </TableContainer>
+
+          {/* table area takes remaining height and scrolls internally */}
+          <div className="w-full flex-1 min-h-0">
+            <MonthsTable totals={totals} rate={rate}/>
+          </div>
+        </div>
       </div>
   )
 }

@@ -89,7 +89,7 @@ export default function Graph({
         ],
     };
     return (
-        <div className="w-full">
+        <div className="w-full h-fit">
             {currency === 'VND' ? (
                 <VietnamIcon />
             ) : currency === 'EUR' ? (
