@@ -30,6 +30,7 @@ async function fetchCurrencyRate(): Promise<number> {
 }
 
 export async function getRate(): Promise<number> {
+  console.log(`Last fetch time: ${lastFetchTime?.toISOString()}`)
   if (cachedRate !== null && lastFetchTime && lastFetchTime.getTime() + 1000 * 60 * 60 * 2 < new Date().getTime()) {
     return cachedRate;
   }
