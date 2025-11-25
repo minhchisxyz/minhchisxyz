@@ -1,9 +1,9 @@
 import Graph from "../../../ui/account-management/graph";
 import { getMonthName} from "@/app/lib/account-management/formatterService";
-import { getRate } from "@/app/lib/account-management/currency/actions";
 import {fetchAllMonthTotals} from "@/app/lib/account-management/transaction/data";
 import {MonthsTable} from "@/app/ui/account-management/table";
 import {Suspense} from "react";
+import {getRate} from "@/app/lib/account-management/currency/data";
 
 export default async function YearDetailsPage({
     params

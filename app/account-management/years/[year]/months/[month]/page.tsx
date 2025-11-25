@@ -1,11 +1,11 @@
 
 import Graph from "../../../../../ui/account-management/graph";
-import { getRate } from "@/app/lib/account-management/currency/actions";
 import { getMonthNumber} from "@/app/lib/account-management/formatterService";
 import { TransactionsTable } from "@/app/ui/account-management/table";
 import { redirect } from "next/navigation";
 import {fetchAllTransactionsOfMonth, fetchAllTransactionsOfMonthGroupByDate} from "@/app/lib/account-management/transaction/data";
 import {GroupedTransactions, Transaction} from "@/app/lib/account-management/definitions";
+import {getRate} from "@/app/lib/account-management/currency/data";
 
 export default async function MonthDetailsPage({
     params

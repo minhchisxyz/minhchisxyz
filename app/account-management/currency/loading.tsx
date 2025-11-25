@@ -21,6 +21,7 @@ export default function Loading() {
               <EuroIcon/>
               <input
                   value={0}
+                  readOnly
                   type="number"
                   className={`${linkClass} max-w-xs w-64 text-center`}
               />

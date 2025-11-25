@@ -1,7 +1,6 @@
 import Graph from "../ui/account-management/graph";
 import { formatEuro, formatVND } from "../lib/account-management/formatterService";
-import {fetchBalance} from "@/app/lib/account-management/currency/data";
-import {getRate} from "@/app/lib/account-management/currency/actions";
+import {fetchBalance, getRate} from "@/app/lib/account-management/currency/data";
 import {fetchYearTotals} from "@/app/lib/account-management/transaction/data";
 import {YearTotal} from "@/app/lib/account-management/definitions";
 
