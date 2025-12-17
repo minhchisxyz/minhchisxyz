@@ -2,8 +2,8 @@ import ElapsedTime from "@/components/us/elapsed-time";
 
 export default function Page() {
   const background = `bg-[url('/us/mobile_background.jpg')] md:bg-[url('/us/desktop_background.jpg')] bg-no-repeat bg-cover bg-center bg-fixed`
-  const shadow = 'shadow-[4px_4px_8px_#222222,-4px_-4px_6px_#444444]'
-  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#222222,4px_-4px_6px_#444444]'
+  const shadow = 'shadow-[4px_4px_8px_#666666,-4px_-4px_6px_#fffffff]'
+  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#666666,4px_-4px_6px_#ffffff]'
 
   return (
       <div className={`h-screen w-screen ${background}`}>
