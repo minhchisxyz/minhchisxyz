@@ -1,4 +1,4 @@
-import {EmailIcon, FacebookIcon, GithubIcon, LinkedinIcon, PhoneIcon} from "@/app/ui/portfolio/icons";
+import {EmailIcon, FacebookIcon, GithubIcon, LinkedinIcon, PhoneIcon} from "@/components/portfolio/icons";
 import Link from "next/link";
 
 type Contact = {

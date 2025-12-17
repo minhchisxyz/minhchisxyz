@@ -1,4 +1,4 @@
-import ElapsedTime from "@/app/ui/us/elapsed-time";
+import ElapsedTime from "@/components/us/elapsed-time";
 
 export default function Page() {
   const background = `bg-[url('/us/mobile_background.jpg')] md:bg-[url('/us/desktop_background.jpg')] bg-no-repeat bg-cover bg-center bg-fixed`

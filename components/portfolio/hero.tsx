@@ -1,6 +1,7 @@
 
 import Image from "next/image";
-import Me from "./img/me.png"
+import Me from "@/components/portfolio/img/me.png"
+import Link from "next/link";
 
 export default function Hero  (
     { setPageAndBackgroundAction, name }: {
@@ -10,7 +11,7 @@ export default function Hero  (
 ) {
   const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#222222,2px_-2px_6px_#ffffff] hover:cursor-pointer'
   const shadow = 'shadow-[4px_4px_8px_#222222,-2px_-2px_6px_#ffffff]'
-  const glass = `bg-white/15 backdrop-blur-md border border-none rounded-lg`
+  const glass = `bg-white/15 backdrop-blur-md border border-none rounded-3xl`
   return (
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
         {/* Left: Text Content */}
@@ -35,16 +36,13 @@ export default function Hero  (
             >
               My Projects
             </button>
-            {/*<Link
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPage('contact');
-                }}
-                className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all"
+            <Link
+                href="/portfolio/Minh_Chi_Diep.pdf"
+                download={true}
+                className={`px-8 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover}`}
             >
-              Get in Touch
-            </Link>*/}
+              Download my CV
+            </Link>
           </div>
         </div>
 

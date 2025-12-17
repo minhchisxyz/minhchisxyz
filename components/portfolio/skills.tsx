@@ -30,7 +30,7 @@ export default function Skills (){
         <h2 className="text-4xl font-bold text-center text-white mb-12 text-shadow-medium">
           My Tech Stack
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
           {skills.map((category) => (
               <CategoryCard
                   key={category.title}

@@ -19,8 +19,8 @@ const projectData: Project[] = [
   {
     title: 'Account Management',
     description:
-        'Visualizes bank transactions and currency rates over time ',
-    tech: ['Java', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Angular'],
+        'Visualizes bank transactions and currency rates over time. On mobile, create transaction with voice by integration with Gemini API ',
+    tech: ['Java', 'TypeScript', 'Dart', 'Spring Boot', 'PostgreSQL', 'Angular', 'Flutter', 'Gemini API'],
     imageUrl: 'https://placehold.co/600x400/8B5CF6/F5F3FF?text=Account+Management',
     githubUrl: 'https://github.com/minhchisxyz/account-management'
   },

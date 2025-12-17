@@ -1,11 +1,11 @@
 'use client'
 
 import {useState} from "react";
-import Hero from "@/app/ui/portfolio/hero";
-import Skills from "@/app/ui/portfolio/skills";
-import Projects from "@/app/ui/portfolio/projects";
-import Navbar from "@/app/ui/portfolio/navigation";
-import Footer from "@/app/ui/portfolio/footer";
+import Hero from "@/components/portfolio/hero";
+import Skills from "@/components/portfolio/skills";
+import Projects from "@/components/portfolio/projects";
+import Navbar from "@/components/portfolio/navigation";
+import Footer from "@/components/portfolio/footer";
 import {useOnInView} from "react-intersection-observer";
 
 export default function Main() {

@@ -1,6 +1,6 @@
 
 import {Metadata} from "next";
-import Main from "@/app/ui/portfolio/main";
+import Main from "@/components/portfolio/main";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-      <>
         <Main/>
-      </>
   );
 }

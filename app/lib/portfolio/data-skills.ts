@@ -27,6 +27,10 @@ const skillStacks: SkillStack[] = [
   {
     title: 'DevOps',
     skills: ['Git', 'CI/CD', 'Jenkins', 'Maven', 'Docker', 'Kubernetes', 'Helm']
+  },
+  {
+    title: 'Mobile',
+    skills: ['Dart', 'Flutter']
   }
 ]
 

@@ -1,7 +1,8 @@
-import {GithubIcon} from "@/app/ui/portfolio/icons";
+import {GithubIcon} from "@/components/portfolio/icons";
 import {ArrowTopRightOnSquareIcon} from "@heroicons/react/24/outline";
 import {getProjects} from "@/app/lib/portfolio/data-projects";
 import Link from "next/link";
+import Image from "next/image";
 
 function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }: {
   title: string;
@@ -13,9 +14,17 @@ function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }
 }) {
   return (
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-white/30">
-        <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
-        <div className="p-6 flex flex-col flex-grow">
-          <div className="h-50">
+        <div className="relative w-full h-48">
+          <Image
+              src={imageUrl}
+              alt={title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <div className="p-6 flex flex-col grow">
+          <div className="h-60">
             <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
             <p className="text-gray-300 mb-5">{description}</p>
             <div className="flex flex-wrap gap-2">
