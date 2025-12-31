@@ -1,10 +1,10 @@
 type Project = {
-  title: string;
-  description: string;
-  tech: string[];
-  imageUrl: string;
-  githubUrl: string;
-  liveUrl?: string;
+  title: string
+  description: string
+  tech: string[]
+  imageUrl: string
+  githubUrl: string
+  liveUrl?: string
 }
 
 const projectData: Project[] = [
@@ -41,6 +41,14 @@ const projectData: Project[] = [
     githubUrl: 'https://github.com/minhchi1709/book-n-eat'
   },
   {
+    title: 'Family Media Cloud Storage',
+    description:
+        'A cloud storage service for family members to share photos and videos',
+    tech: ['TypeScript', 'Next.js', 'PostgreSQL', 'Drive API', 'Cloudinary API'],
+    imageUrl: 'https://placehold.co/600x400/F59E0B/ECFDF5?text=Family+Media+Cloud+Storage',
+    githubUrl: 'https://github.com/minhchisxyz/gia-dinh-minh'
+  },
+  {
     title: 'Blackjack',
     description:
         'Client-side blackjack game against a bot, deployed on GitHub Pages',
@@ -58,8 +66,8 @@ const projectData: Project[] = [
     githubUrl: 'https://github.com/minhchisxyz/travel-planner',
     liveUrl: 'https://travel-planner-asisstant.vercel.app/'
   },
-];
+]
 
 export function getProjects(): Project[] {
-  return projectData;
+  return projectData
 }

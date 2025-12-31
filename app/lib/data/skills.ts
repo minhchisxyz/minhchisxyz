@@ -1,6 +1,6 @@
 type SkillStack = {
-  title: string;
-  skills: string[];
+  title: string
+  skills: string[]
 }
 
 const skillStacks: SkillStack[] = [
@@ -35,5 +35,5 @@ const skillStacks: SkillStack[] = [
 ]
 
 export function getSkills(): SkillStack[] {
-  return skillStacks;
+  return skillStacks
 }

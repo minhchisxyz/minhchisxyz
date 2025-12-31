@@ -1,7 +1,7 @@
 'use client'
 
-import { ReactNode, useState} from "react";
-import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid";
+import { ReactNode, useState} from "react"
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/solid"
 
 function NavLink (
     { children, pageName, page, handleClick} : {
@@ -24,7 +24,7 @@ function NavLink (
       >
         {children}
       </button>
-  );
+  )
 }
 
 function NavLinks({ page, handleClick }: {
@@ -35,8 +35,8 @@ function NavLinks({ page, handleClick }: {
     'Home',
     'Skills',
     'Projects',
-    //'Contact'
-  ];
+    'Contact'
+  ]
   return (
       <>
         {navItems.map((item) => (
@@ -55,19 +55,19 @@ export default function Navbar (
       name: string
     }
 ) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const handleClick = (page: string) => {
-    const element = document.getElementById(page.toLowerCase());
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setPageAndBackgroundAction(page.toLowerCase());
-    setIsMobileMenuOpen(false);
+    const element = document.getElementById(page.toLowerCase())
+    element?.scrollIntoView({ behavior: 'smooth' })
+    setPageAndBackgroundAction(page.toLowerCase())
+    setIsMobileMenuOpen(false)
   }
 
   return (
       <nav className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
             <span
                 className="text-white font-bold text-2xl cursor-pointer text-shadow-medium"
                 onClick={() => handleClick('home')}
@@ -107,5 +107,5 @@ export default function Navbar (
           </div>
         </div>
       </nav>
-  );
-};
+  )
+}

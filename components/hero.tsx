@@ -1,7 +1,6 @@
-
-import Image from "next/image";
-import Me from "@/components/portfolio/img/me.png"
-import Link from "next/link";
+import Image from "next/image"
+import Me from "@/components/img/me.png"
+import Link from "next/link"
 
 export default function Hero  (
     { setPageAndBackgroundAction, name }: {
@@ -28,16 +27,16 @@ export default function Hero  (
           <div className="flex justify-center md:justify-start gap-4">
             <button
                 onClick={() => {
-                  const element = document.getElementById('projects');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                  setPageAndBackgroundAction('projects');
+                  const element = document.getElementById('projects')
+                  element?.scrollIntoView({ behavior: 'smooth' })
+                  setPageAndBackgroundAction('projects')
                 }}
                 className={`px-8 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover}`}
             >
               My Projects
             </button>
             <Link
-                href="/portfolio/Minh_Chi_Diep.pdf"
+                href="/Minh_Chi_Diep.pdf"
                 download={true}
                 className={`px-8 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover}`}
             >
@@ -58,5 +57,5 @@ export default function Hero  (
           </div>
         </div>
       </div>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import {EmailIcon, FacebookIcon, GithubIcon, LinkedinIcon, PhoneIcon} from "@/components/portfolio/icons";
-import Link from "next/link";
+import {EmailIcon, FacebookIcon, GithubIcon, LinkedinIcon, PhoneIcon} from "@/components/icons"
+import Link from "next/link"
 
 type Contact = {
-  name: string;
-  href: string;
-  icon: React.ReactNode;
+  name: string
+  href: string
+  icon: React.ReactNode
 }
 
 const contacts: Contact[] = [
@@ -36,7 +36,7 @@ const contacts: Contact[] = [
 ]
 
 export default function Footer({ name }: {
-  name: string;
+  name: string
 }) {
   return (
       <footer className="text-gray-300 py-10 border-t border-white/20 mt-16">
@@ -55,5 +55,5 @@ export default function Footer({ name }: {
           </div>
         </div>
       </footer>
-  );
-};
+  )
+}

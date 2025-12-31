@@ -1,16 +1,16 @@
-import {GithubIcon} from "@/components/portfolio/icons";
-import {ArrowTopRightOnSquareIcon} from "@heroicons/react/24/outline";
-import {getProjects} from "@/app/lib/portfolio/data-projects";
-import Link from "next/link";
-import Image from "next/image";
+import {GithubIcon} from "@/components/icons"
+import {ArrowTopRightOnSquareIcon} from "@heroicons/react/24/outline"
+import {getProjects} from "@/app/lib/data/projects"
+import Link from "next/link"
+import Image from "next/image"
 
 function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }: {
-  title: string;
-  description: string;
-  tech: string[];
-  imageUrl: string;
-  githubUrl: string;
-  liveUrl?: string;
+  title: string
+  description: string
+  tech: string[]
+  imageUrl: string
+  githubUrl: string
+  liveUrl?: string
 }) {
   return (
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-white/30">
@@ -62,7 +62,7 @@ function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }
           </div>
         </div>
       </div>
-  );
+  )
 }
 
 export default function Projects (){
@@ -80,5 +80,5 @@ export default function Projects (){
           </div>
         </div>
       </section>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
-import {getSkills} from "@/app/lib/portfolio/data-skills";
+import {getSkills} from "@/app/lib/data/skills"
 
 function CategoryCard ({ title, skills }: {
-  title: string;
-  skills: string[];
+  title: string
+  skills: string[]
 }) {
   return (
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 shadow-xl flex flex-col h-full">
@@ -20,7 +20,7 @@ function CategoryCard ({ title, skills }: {
           ))}
         </div>
       </div>
-  );
+  )
 }
 
 export default function Skills (){
@@ -40,5 +40,5 @@ export default function Skills (){
           ))}
         </div>
       </div>
-  );
-};
+  )
+}
