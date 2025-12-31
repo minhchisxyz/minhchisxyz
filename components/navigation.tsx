@@ -97,7 +97,7 @@ export default function Navbar (
         {/* Mobile menu dropdown */}
         <div
             className={
-                `md:hidden border-t border-white/20 backdrop-blur-lg bg-white/10 
+                `md:hidden fixed top-16 left-0 w-full border-t border-white/20 backdrop-blur-xl bg-white/30
                 ${isMobileMenuOpen ? 'block' : 'hidden'}`
           }
             id="mobile-menu"

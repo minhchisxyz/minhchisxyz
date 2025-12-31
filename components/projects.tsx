@@ -13,7 +13,7 @@ function ProjectCard ({ title, description, tech, imageUrl, githubUrl, liveUrl }
   liveUrl?: string
 }) {
   return (
-      <div className="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-white/30">
+      <div className="w-96 h-140 bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-white/30">
         <div className="relative w-full h-48">
           <Image
               src={imageUrl}
@@ -73,7 +73,7 @@ export default function Projects (){
           <h2 className="text-4xl font-bold text-center text-white mb-12 text-shadow-medium">
             My Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex items-center justify-center flex-wrap gap-8">
             {projects.map((project) => (
                 <ProjectCard key={project.title} {...project} />
             ))}
