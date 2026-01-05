@@ -18,11 +18,14 @@ export default function Hero  (
       <span className="text-blue-300 font-semibold text-lg">
         Hi, my name is
       </span>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mt-3 mb-5 text-white text-shadow-hero">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold mt-3 mb-2 text-white text-shadow-hero">
             { name }
           </h1>
+          <p className="text-xl sm:text-2xl text-blue-200 font-medium mb-6">
+            (Diệp Minh Chí)
+          </p>
           <h2 className="text-2xl sm:text-3xl font-medium text-gray-200 mb-8 text-shadow-medium">
-            I enthusiast in coding, badminton and doing gym things
+            I am a software enthusiast passionate about coding, badminton, and fitness
           </h2>
           <div className="flex justify-center md:justify-start gap-4">
             <a

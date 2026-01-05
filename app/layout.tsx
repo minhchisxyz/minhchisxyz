@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    "Minh Chi Diep", "Portfolio", "Full Stack Developer", "Web Developer", "Software Engineer",
+    "Minh Chi Diep", "Diệp Minh Chí", "Minh Chi", "Portfolio", "Full Stack Developer", "Web Developer", "Software Engineer",
     "React", "Next.js", "TypeScript", "JavaScript", "Java", "Python", "C++", "C#",
     "Spring Boot", "Node.js", "Django", "FastAPI", "Flask", ".NET",
     "Angular", "Tailwind CSS", "Bootstrap",
