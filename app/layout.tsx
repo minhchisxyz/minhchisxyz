@@ -78,19 +78,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Minh Chi Diep',
-    url: 'https://portfolio.mchisxyz.uk',
-    sameAs: [
-      "https://github.com/minhchisxyz",
-      "https://www.linkedin.com/in/diepminhchi/",
-      "https://www.facebook.com/minhchisxyz"
-    ],
-    jobTitle: 'Full Stack Developer',
-    telephone: '+4917680676239'
-  }
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Minh Chi Diep',
+      url: 'https://portfolio.mchisxyz.uk',
+      sameAs: [
+        "https://github.com/minhchisxyz",
+        "https://www.linkedin.com/in/diepminhchi/",
+        "https://www.facebook.com/minhchisxyz"
+      ],
+      jobTitle: 'Full Stack Developer',
+      telephone: '+4917680676239'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Minh Chi Diep Portfolio',
+      url: 'https://portfolio.mchisxyz.uk',
+    }
+  ]
 
   return (
     <html lang="en">
