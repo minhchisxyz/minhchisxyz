@@ -65,6 +65,12 @@ export const metadata: Metadata = {
     description: "Portfolio of Minh Chi Diep - Full Stack Developer",
     images: ["/icon.png"],
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+  authors: [{ name: "Minh Chi Diep", url: "https://portfolio.mchisxyz.uk" }],
+  creator: "Minh Chi Diep",
+  publisher: "Minh Chi Diep",
 }
 
 export default function RootLayout({

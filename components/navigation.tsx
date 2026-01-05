@@ -15,15 +15,19 @@ function NavLink (
   const hover = 'hover:shadow-[4px_4px_8px_#111111,-2px_-2px_6px_#ffffff] hover:cursor-pointer hover:rounded-3xl'
   const active = `text-white inset-shadow-[-4px_4px_8px_#000000,2px_-2px_6px_#ffffff] ${glass}`
   return (
-      <button
-          onClick={() => handleClick(pageName)}
+      <a
+          href={`#${pageName.toLowerCase()}`}
+          onClick={(e) => {
+            e.preventDefault()
+            handleClick(pageName)
+          }}
           className={
               `block md:inline-block px-4 py-2 text-base font-medium transition-colors ${hover} 
               ${page === pageName.toLowerCase() ? active : 'text-gray-300 hover:text-white'}`
           }
       >
         {children}
-      </button>
+      </a>
   )
 }
 
@@ -68,12 +72,16 @@ export default function Navbar (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="shrink-0">
-            <span
+            <a
+                href="#home"
                 className="text-white font-bold text-2xl cursor-pointer text-shadow-medium"
-                onClick={() => handleClick('home')}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleClick('home')
+                }}
             >
               { name }
-            </span>
+            </a>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">

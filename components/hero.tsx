@@ -25,8 +25,10 @@ export default function Hero  (
             I enthusiast in coding, badminton and doing gym things
           </h2>
           <div className="flex justify-center md:justify-start gap-4">
-            <button
-                onClick={() => {
+            <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault()
                   const element = document.getElementById('projects')
                   element?.scrollIntoView({ behavior: 'smooth' })
                   setPageAndBackgroundAction('projects')
@@ -34,7 +36,7 @@ export default function Hero  (
                 className={`px-8 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover}`}
             >
               My Projects
-            </button>
+            </a>
             <Link
                 href="/Minh_Chi_Diep.pdf"
                 download={true}
