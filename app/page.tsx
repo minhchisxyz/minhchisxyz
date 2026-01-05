@@ -17,7 +17,7 @@ export default function Page() {
     default: 'from-purple-900 via-gray-900 to-blue-900',
     home: 'from-blue-800 via-purple-900 to-pink-800', // Deep blues and purples
     skills: 'from-green-800 via-teal-900 to-blue-900', // Greens and blues
-    projects: 'from-pink-800 via-rose-900 to-fuchsia-900', // Pink and rose tones
+    projects: 'from-pink-900 via-fuchsia-900 to-purple-900', // Pink and purple tones
     contact: 'from-gray-800 via-indigo-900 to-gray-800', // Cool grays and indigos
   }
 

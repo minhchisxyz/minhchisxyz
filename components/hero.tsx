@@ -50,7 +50,7 @@ export default function Hero  (
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-white/40 shadow-2xl bg-white/10 backdrop-blur-sm p-1">
             <Image
                 src={Me}
-                alt="Myself"
+                alt="Minh Chi Diep - Full Stack Developer"
                 placeholder={"blur"}
                 className="w-full h-full object-cover rounded-full"
             />

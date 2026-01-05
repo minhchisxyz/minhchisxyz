@@ -22,9 +22,9 @@ export default function Contact () {
     }
   }, [state])
 
-  const hover = 'hover:shadow-none hover:inset-shadow-[-4px_4px_8px_#222222,2px_-2px_6px_#ffffff] hover:cursor-pointer'
-  const shadow = 'shadow-[4px_4px_8px_#222222,-2px_-2px_6px_#ffffff]'
-  const glass = `bg-white/15 backdrop-blur-md border border-none rounded-3xl`
+  const glass = `bg-white/15 backdrop-blur-md border-none rounded-3xl`
+  const hover = 'hover:shadow-[4px_4px_8px_#111111,-2px_-2px_6px_#ffffff] hover:cursor-pointer hover:rounded-3xl'
+  const active = 'active:shadow-none active:inset-shadow-[-4px_4px_8px_#000000,2px_-2px_6px_#ffffff]'
 
   return (
       <section id="contact" className="py-24">
@@ -84,7 +84,7 @@ export default function Contact () {
                 <button
                     type="submit"
                     disabled={isPending}
-                    className={`px-10 py-3 text-white font-semibold transition-all ${glass} ${shadow} ${hover} disabled:opacity-50 disabled:cursor-not-allowed`}
+                    className={`px-10 py-3 text-white font-semibold transition-all ${glass} ${hover} ${active} disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
                   {isPending ? 'Sending...' : 'Send Message'}
                 </button>
