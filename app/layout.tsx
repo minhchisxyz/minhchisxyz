@@ -90,7 +90,17 @@ export default function RootLayout({
         "https://www.facebook.com/minhchisxyz"
       ],
       jobTitle: 'Full Stack Developer',
-      telephone: '+4917680676239'
+      telephone: '+4917680676239',
+      knowsAbout: [
+        "React", "Next.js", "TypeScript", "JavaScript", "Java", "Python", "C++", "C#",
+        "Spring Boot", "Node.js", "Django", "FastAPI", "Flask", ".NET",
+        "Angular", "Tailwind CSS", "Bootstrap",
+        "PostgreSQL", "MongoDB", "SQLite",
+        "Machine Learning", "PyTorch", "TensorFlow", "scikit-learn", "pandas", "NumPy",
+        "DevOps", "Docker", "Kubernetes", "Jenkins", "CI/CD",
+        "Mobile Development", "Flutter", "Dart",
+        "Gemini API"
+      ]
     },
     {
       '@context': 'https://schema.org',
