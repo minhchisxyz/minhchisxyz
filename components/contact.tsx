@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState, useEffect } from 'react'
-import { sendEmail } from '@/app/actions'
+import { sendEmail } from '@/app/lib/actions'
 import { toast } from 'sonner'
 
 const initialState = {

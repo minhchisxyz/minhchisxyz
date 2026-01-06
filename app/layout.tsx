@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio.mchisxyz.uk"),
+  metadataBase: new URL("https://mchisxyz.id.vn"),
   title: "Minh Chi Diep | Portfolio",
   description: "Portfolio of Minh Chi Diep - Full Stack Developer specializing in React, Next.js, TypeScript, and modern web technologies. View my projects and skills.",
   alternates: {
-    canonical: "https://portfolio.mchisxyz.uk",
+    canonical: "https://mchisxyz.id.vn",
   },
   robots: {
     index: true,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Minh Chi Diep | Portfolio",
     description: "Portfolio of Minh Chi Diep - Full Stack Developer",
-    url: "https://portfolio.mchisxyz.uk",
+    url: "https://mchisxyz.id.vn",
     siteName: "Minh Chi Diep Portfolio",
     images: [
       {
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
-  authors: [{ name: "Minh Chi Diep", url: "https://portfolio.mchisxyz.uk" }],
+  authors: [{ name: "Minh Chi Diep", url: "https://mchisxyz.id.vn" }],
   creator: "Minh Chi Diep",
   publisher: "Minh Chi Diep",
 }
@@ -83,7 +83,7 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Minh Chi Diep',
-      url: 'https://portfolio.mchisxyz.uk',
+      url: 'https://mchisxyz.id.vn',
       sameAs: [
         "https://github.com/minhchisxyz",
         "https://www.linkedin.com/in/diepminhchi/",
@@ -106,7 +106,7 @@ export default function RootLayout({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Minh Chi Diep Portfolio',
-      url: 'https://portfolio.mchisxyz.uk',
+      url: 'https://mchisxyz.id.vn',
     }
   ]
 

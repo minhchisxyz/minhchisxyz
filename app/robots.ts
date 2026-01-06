@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://portfolio.mchisxyz.uk/sitemap.xml',
+    sitemap: 'https://mchisxyz.id.vn/sitemap.xml',
   }
 }
 
